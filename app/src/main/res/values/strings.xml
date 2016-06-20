@@ -14,5 +14,6 @@
     <string name="non_existent_stock">Non-existent stock</string>
     <string name="stock_already_saved">This stock is already saved!</string>
     <string name="add_stock">Add stock</string>
+    <string name="action_refresh">Refresh</string>
 
 </resources>
