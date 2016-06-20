@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.gcm.TaskParams;
+import com.sam_chordas.android.stockhawk.R;
 
 /**
  * Created by sam_chordas on 10/1/15.
@@ -39,7 +40,7 @@ public class StockIntentService extends IntentService {
             new Handler(getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(getApplicationContext(), "Non existent stock", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.non_existent_stock), Toast.LENGTH_SHORT).show();
                 }
             });
         }
