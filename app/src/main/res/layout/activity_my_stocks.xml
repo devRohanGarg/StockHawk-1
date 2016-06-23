@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,6 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_item_quote" />
+
+    <TextView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/network_toast"
+        android:textStyle="bold" />
 
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab"
@@ -24,4 +32,4 @@
         fab:fab_type="normal"
         fab:layout_anchor="recycler_view"
         fab:layout_anchorGravity="bottom | end" />
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>
