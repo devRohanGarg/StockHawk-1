@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.db.chart.Tools;
 import com.db.chart.model.LineSet;
@@ -38,6 +39,7 @@ public class LineGraphActivity extends AppCompatActivity implements LoaderManage
         lineChartView = (LineChartView) findViewById(R.id.linechart);
         initLineChart();
         Intent intent = getIntent();
+        getSupportActionBar().setTitle(intent.getStringExtra("symbol"));
         Bundle args = new Bundle();
         args.putString("symbol", intent.getStringExtra("symbol"));
         getLoaderManager().initLoader(CURSOR_LOADER_ID, args, this);
@@ -54,7 +56,7 @@ public class LineGraphActivity extends AppCompatActivity implements LoaderManage
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(this, QuoteProvider.Quotes.CONTENT_URI,
-                new String[]{QuoteColumns.BIDPRICE},
+                new String[]{QuoteColumns.NAME, QuoteColumns.BIDPRICE},
                 QuoteColumns.SYMBOL + " = ?",
                 new String[]{args.getString("symbol")},
                 null);
@@ -63,16 +65,21 @@ public class LineGraphActivity extends AppCompatActivity implements LoaderManage
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mCursor = data;
+        mCursor.moveToFirst();
+        setNameTextView();
         fillLineSet();
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+    }
 
+    private void setNameTextView() {
+        TextView name = (TextView) findViewById(R.id.stock_name);
+        name.setText(mCursor.getString(mCursor.getColumnIndex(QuoteColumns.NAME)));
     }
 
     private void fillLineSet() {
-        mCursor.moveToFirst();
         int k = mCursor.getCount();
         int f = (k / 8) + 1;
         for (int i = 0; i < k; i++) {
