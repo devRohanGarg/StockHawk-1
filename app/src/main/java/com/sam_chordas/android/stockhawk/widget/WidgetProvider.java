@@ -23,10 +23,11 @@ public class WidgetProvider extends AppWidgetProvider {
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.app_widget);
+        views.setEmptyView(R.id.widget_list_view, R.id.emptyView);
         views.setRemoteAdapter(R.id.widget_list_view, svcIntent);
-
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_list_view);
     }
 
     @Override
