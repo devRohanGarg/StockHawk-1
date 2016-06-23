@@ -10,6 +10,7 @@ import android.database.DataSetObserver;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -97,6 +98,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.attachToRecyclerView(recyclerView);
+        fab.setColorNormal(ContextCompat.getColor(this, R.color.accent));
+        fab.setColorPressed(ContextCompat.getColor(this, R.color.accent_dark));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

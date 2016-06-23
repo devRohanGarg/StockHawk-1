@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -90,9 +91,9 @@ public class LineGraphActivity extends AppCompatActivity implements LoaderManage
                 mLineSet.addPoint("", price);
             mCursor.moveToNext();
         }
-        mLineSet.setColor(Color.parseColor("#e50000"))
+        mLineSet.setColor(ContextCompat.getColor(this, R.color.accent))
                 .setDotsStrokeThickness(Tools.fromDpToPx(2))
-                .setDotsStrokeColor(Color.parseColor("#e50000"))
+                .setDotsStrokeColor(ContextCompat.getColor(this, R.color.accent_dark))
                 .setDotsColor(Color.parseColor("#eef1f6"));
         lineChartView.addData(mLineSet);
         lineChartView.show();
