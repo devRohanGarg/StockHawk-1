@@ -15,5 +15,6 @@
     <string name="stock_already_saved">This stock is already saved!</string>
     <string name="add_stock">Add stock</string>
     <string name="action_refresh">Refresh</string>
+    <string name="no_stocks">No stocks\nTap + to add a new one</string>
 
 </resources>

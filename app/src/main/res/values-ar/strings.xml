@@ -12,4 +12,5 @@
     <string name="symbol_search">رمز البحث</string>
     <string name="widget_title">سوق اليوم</string>
     <string name="action_refresh">اعادة تنشيط</string>
+    <string name="no_stocks">يوجد مخزون. اضغط + لإضافة واحدة جديدة</string>
 </resources>
